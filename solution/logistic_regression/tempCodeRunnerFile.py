@@ -1,0 +1,1 @@
+arn_lr.score(X_test, y_test))
