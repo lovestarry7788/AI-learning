@@ -2,6 +2,7 @@ import pdb
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 class Node:
 
@@ -113,6 +114,7 @@ def Dataprocessing():
     data = load_iris()
     x = data['data']
     y = data['target']
+    print(y)
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2)
     return x_train, x_test, y_train, y_test
 
@@ -133,10 +135,10 @@ if __name__ == "__main__":
     y_pred = model.predict(x_test)
     print("y_pred",y_pred)
     print("y_test",y_test)
-    # res = MSE(y_pred, y_test)
+    res = MSE(y_pred, y_test)
 
-    # print("残差平方和: %f"%res)
+    print("残差平方和: %f"%res)
 
-    # plt.plot(y_test)
-    # plt.plot(y_pred)
-    # plt.show()
+    plt.plot(y_test)
+    plt.plot(y_pred)
+    plt.show()

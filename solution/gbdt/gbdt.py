@@ -1,8 +1,10 @@
+import pdb
 import numpy as np
 import matplotlib.pyplot as plt
 # from CARTRegression import CARTRegression
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
+from CART import CART
 
 class GBDT():
 
@@ -13,14 +15,14 @@ class GBDT():
     def fit(self, x, y):
         residual = y
         for i in range(self.max_tree_num):
-            model = CARTREegression()
+            model = CART()
             model.fit(x, residual)
             self.tree_list.append(model)
             prediction = model.predict(x)
             residual = residual - prediction
 
     def predict(self, x):
-        y = np.zeros(x.shape(0))
+        y = np.zeros(x.shape[0])
         for model in self.tree_list:
             new_pred = np.array(model.predict(x))
             y += new_pred
